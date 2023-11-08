@@ -3,10 +3,12 @@ import Formulari from './components/Formulari.vue';
 </script>
 
 <template>
-  <div class="principal">
+  <!-- <div class="principal">
+  </div> -->
+  
+    <h1>My Journal</h1>
 
-  </div>
-<!-- <h1>My Journal</h1> -->
+
 
 <section>
 <Formulari>
@@ -15,8 +17,21 @@ import Formulari from './components/Formulari.vue';
 </template>
 
 <style scoped>
-.principal{
+/* .principal{
   width: 100%;
 
+} */
+
+
+
+h1{
+  font-weight: bold;
+  text-align: center;
+  
 }
+
+section{
+  display: flex;
+}
+
 </style>
