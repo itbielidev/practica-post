@@ -1,11 +1,11 @@
 <template>
     <!-- <h2>Formulari</h2> -->
     <form  @submit="gestionarSubmit" action="">
-    <textarea :value="body" ref="textarea" name="" id="" cols="30" rows="10">
+    <textarea :value="body" ref="textarea" class="text-box" name="" id="" cols="60" rows="10" placeholder="Escribe un post">
 
     </textarea>
     <Emojis></Emojis>
-    <button class="submitButton" type="submit">Remember</button>
+    <button class="submitButton" type="submit">Remember <SubmitButton/></button>
   </form>
 </template>
 
@@ -13,6 +13,7 @@
 import type Entry from '@/types/Entry';
 import { computed, ref } from 'vue';
 import Emojis from '../components/icons/Emojis.vue';
+import SubmitButton from './icons/SubmitButton.vue';
 
 const emit = defineEmits<{
   (e:"@create",entry:Entry):void
@@ -44,11 +45,30 @@ const gestionarSubmit = ()=>{
 
 <style scoped>
 form{
-  padding: 20px;
-  background-color: lightgrey;
-  gap:10px
+  background-color:#e4e4eb;
+  gap:10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
 }
 
+.text-box{
+  border: white;
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
+.submitButton{
+  align-self: flex-end;
+  background-color:#237171 ;
+  border: 0px;
+  font-size: 15px;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-weight:lighter;
+  align-items: center;
+}
 
 </style>
