@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Formulari from './components/Formulari.vue';
 import TextIcon from '@/components/icons/TextIcon.vue'
+import PostEnviat from '@/components/PostEnviat.vue'
 </script>
 
 <template>
@@ -14,6 +15,7 @@ import TextIcon from '@/components/icons/TextIcon.vue'
 <section>
 <Formulari>
 </Formulari>
+<PostEnviat/>
 </section>
 </template>
 

@@ -1,10 +1,13 @@
 <template>
     <!-- <h2>Formulari</h2> -->
-    <form  @submit="gestionarSubmit" action="">
-    <textarea :value="body" ref="textarea" class="text-box" name="" id="" cols="60" rows="10" placeholder="Escribe un post">
-
+    <form  @submit.prevent="gestionarSubmit">
+    <textarea :value="body" 
+    @keyup="recollirTextForm"
+    ref="textarea" class="text-box" name="" id="" cols="60" rows="10" placeholder="Escribe un post">
     </textarea>
-    <Emojis></Emojis>
+    <br>
+    <span>{{ charCount }} / {{ maxCharacters }}</span>
+    <Emojis v-model="emoji"></Emojis>
     <button class="submitButton" type="submit">Remember <SubmitButton/></button>
   </form>
 </template>
@@ -14,27 +17,37 @@ import type Entry from '@/types/Entry';
 import { computed, ref } from 'vue';
 import Emojis from '../components/icons/Emojis.vue';
 import SubmitButton from './icons/SubmitButton.vue';
+import type Emoji from '@/types/Emojis.ts'
 
+//explicar
 const emit = defineEmits<{
   (e:"@create",entry:Entry):void
-}>();
+}>(); 
 
-const textarea = ref()
 const maxCharacters = 280;
 //fer referencia al num de caracters del formulari 
 const body =ref("")
-const charCount = computed(()=>body.value)
+const emoji = ref<Emoji| null>(null)
+const charCount = computed(()=>body.value.length)
 console.log(charCount)
 const recollirTextForm = (e:Event) =>{
-console.log(textarea.value);
-
+  const textarea = e.target as HTMLTextAreaElement
+  
+  if (textarea.value.length<=maxCharacters) {
+    body.value = textarea.value   
+  } else{
+   /* <div v-if="">
+    Se ha superado el limite de caracteres
+    </div> */
+  }
+ 
 }
 
 const gestionarSubmit = ()=>{
   console.log("hola")
   emit('@create', {
     id: 1,
-    emoji: "happy",
+    emoji: emoji.value,
     createDate: new Date(),
     userId: 1,
     body:body.value,
