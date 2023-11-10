@@ -5,16 +5,11 @@ import PostEnviat from '@/components/PostEnviat.vue'
 </script>
 
 <template>
-  <!-- <div class="principal">
-  </div> -->
-  
+
     <h1> <TextIcon /> My Journal</h1>
 
-
-
 <section>
-<Formulari>
-</Formulari>
+<Formulari/>
 <PostEnviat/>
 </section>
 </template>
@@ -35,6 +30,7 @@ h1{
 
 section{
   display: flex;
+  flex-direction: column;
 }
 
 *{

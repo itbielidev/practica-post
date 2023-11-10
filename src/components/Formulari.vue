@@ -5,9 +5,8 @@
     @keyup="recollirTextForm"
     ref="textarea" class="text-box" name="" id="" cols="60" rows="10" placeholder="Escribe un post">
     </textarea>
-    <br>
-    <span>{{ charCount }} / {{ maxCharacters }}</span>
     <Emojis v-model="emoji"></Emojis>
+    <span>{{ charCount }} / {{ maxCharacters }}</span>
     <button class="submitButton" type="submit">Remember <SubmitButton/></button>
   </form>
 </template>
@@ -17,7 +16,8 @@ import type Entry from '@/types/Entry';
 import { computed, ref } from 'vue';
 import Emojis from '../components/icons/Emojis.vue';
 import SubmitButton from './icons/SubmitButton.vue';
-import type Emoji from '@/types/Emojis.ts'
+import type Emoji from '@/types/Emojis.ts';
+
 
 //explicar
 const emit = defineEmits<{
@@ -64,6 +64,8 @@ form{
   display: flex;
   flex-direction: column;
   border-radius: 5px;
+  width: 50rem;
+  margin:auto;
 }
 
 .text-box{
