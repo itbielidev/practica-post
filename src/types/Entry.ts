@@ -4,5 +4,5 @@ export default interface Entry{
     body:string;
     emoji: Emoji | null;
     createDate: Date;
-    userId:number;
+    user:string;
 }
