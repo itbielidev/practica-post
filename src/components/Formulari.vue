@@ -36,7 +36,7 @@ const gestionarSubmit = ()=>{
   emit('create', {
     id: 1,
     emoji: emoji.value,
-    createDate: new Date(),
+    createDate: new Date("2023-11-11 08:30:00"),
     user: 'carolina',
     body:body.value,
   })
